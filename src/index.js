@@ -51,6 +51,7 @@ class Header {
       settingsButtonActive: this.api.styles.settingsButtonActive,
       wrapper: "ce-header",
     };
+    this._id = data.id;
 
     /**
      * Tool's settings passed from Editor
@@ -82,7 +83,6 @@ class Header {
      * @private
      */
     this._element = this.getTag();
-    this._id = data.id;
   }
 
   /**
@@ -365,6 +365,11 @@ class Header {
      * Add Placeholder
      */
     tag.dataset.placeholder = this.api.i18n.t(this._settings.placeholder || "");
+
+    /**
+     * Add id
+     */
+    tag.id = this._id;
 
     return tag;
   }
